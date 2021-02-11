@@ -1,14 +1,14 @@
 <template>
   <div class="blog">
-    <h1>En blog</h1>
+    <h1>Blog</h1>
     <div class="search">
       <div class="inputs">
-        <label >title</label>
+        <label >Title:</label>
         <input type="text" v-model="title" />
-        <label >post</label>
+        <label >Post:</label>
         <textarea type="text" v-model="content" />
       </div>
-      <button @click="post()">Posta mej</button>
+      <button @click="post()">Send</button>
     </div>
     <h2>Inlägg</h2>
     <ul class="blog-post">
@@ -80,7 +80,10 @@ export default {
 .inputs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background: white;
+  padding: 0.8rem;
+  border-radius: 0.24rem;
+  border: 0.08rem solid grey;
 }
 .inputs > input, .inputs > textarea {
   margin: 0.24rem;
@@ -89,6 +92,11 @@ export default {
 }
 .inputs > textarea {
   height: 16vh;
+}
+.inputs > label {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 800;
 }
 .blog-post {
   display: flex;
