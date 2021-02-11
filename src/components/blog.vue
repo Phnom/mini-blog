@@ -10,8 +10,9 @@
       </div>
       <button @click="post()">Send</button>
     </div>
-    <h2>Inlägg</h2>
+
     <ul class="blog-post">
+      <h2>Posts:</h2>
       <dl class="blog-post-single" v-for="(item, index) in data" :key="index">
         <dt>{{ item.title }}</dt>
         <dd>{{ item.content }}</dd>
@@ -100,7 +101,7 @@ export default {
 }
 .blog-post {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 dl {
   width: 24rem;
@@ -111,11 +112,14 @@ dl {
   margin: 0.8rem;
 }
 dt {
+  font-size: 1.2rem;
+  font-weight: 600;
   text-align: center;
   padding: 2.4rem;
   border-bottom: 0.16rem solid black;
 }
 dd {
+  font-size: 0.8rem;
   text-align: left;
   padding: 2.4rem;
 }
