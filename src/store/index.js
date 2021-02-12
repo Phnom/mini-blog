@@ -29,7 +29,9 @@ export default new Vuex.Store({
     },
     patchBlog: async (_, payload) => {
       console.log(payload.id) 
-      await fetch('http://localhost:5000/api/posts' + payload.id, { method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)})},
+      await fetch('http://localhost:5000/api/posts/' + payload.id, { method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)})
+    },
+    deleteBlog: async (_, payload) => await fetch('http://localhost:5000/api/posts/' + payload , {method: 'DELETE'}),
     editMode: (context, payload) => {
       context.commit('changeEdit') 
       context.commit('changeEditId', payload)

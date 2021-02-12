@@ -10,7 +10,9 @@
       <button class="button" @click="post()" :class="{ editMode: edit }">
         Send
       </button>
-      <button class="button editMode" v-if="edit">Delete</button>
+      <button class="button editMode" v-if="edit" @click="deletePost(editId)">
+        Delete
+      </button>
     </div>
   </div>
 </template>
@@ -50,6 +52,13 @@ export default {
             },
             this.editId
           );
+      this.$store.dispatch("getBlogs");
+      this.$store.dispatch("editMode");
+    },
+    deletePost(id) {
+      this.$store.dispatch("deleteBlog", id);
+      this.$store.dispatch("getBlogs");
+      this.$store.dispatch("editMode");
     },
   },
   computed: {
@@ -74,8 +83,8 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.editMode > .buttons  {
-    justify-content: space-around;
+.editMode > .buttons {
+  justify-content: space-around;
 }
 .blog-input {
   max-height: 40%;
