@@ -1,12 +1,14 @@
 <template>
-  <div class="blog-input">
+  <div class="blog-input" :class="{ editMode: edit }">
     <div class="inputs">
       <label>Title:</label>
-      <input type="text" v-model="title" />
+      <input type="text" v-model="title" :class="{ editMode: edit }" />
       <label>Post:</label>
-      <textarea type="text" v-model="content" />
+      <textarea type="text" v-model="content" :class="{ editMode: edit }" />
     </div>
-    <button @click="post()">Send</button>
+    <button class="button" @click="post()" :class="{ editMode: edit }">
+      Send
+    </button>
   </div>
 </template>
 
@@ -18,8 +20,22 @@ export default {
       content: "",
     };
   },
+  watch: {
+    edit(editMode) {
+      if (editMode) {
+        this.title = this.currentPost.title;
+        this.content = this.currentPost.content;
+      } else {
+        this.title = "";
+        this.content = "";
+      }
+    },
+  },
   methods: {
     post() {
+      this.edit ? this.editPost() : this.newPost();
+    },
+    newPost() {
       this.$store.dispatch("postBlog", {
         title: this.title,
         content: this.content,
@@ -27,6 +43,20 @@ export default {
       this.title = "";
       this.content = "";
       this.$store.dispatch("getBlogs");
+    },
+    editPost() {
+      console.log("edit");
+    },
+  },
+  computed: {
+    edit() {
+      return this.$store.getters.getEdit;
+    },
+    editId() {
+      return this.$store.getters.getEditId;
+    },
+    currentPost() {
+      return this.$store.getters.getDataById;
     },
   },
 };
@@ -39,25 +69,17 @@ export default {
   justify-content: space-evenly;
   width: 100%;
 }
-.blog-input > button { 
-  border: 0.08rem solid rgba(128, 128, 128, 0.23);
-  height: fit-content;
-  width: fit-content;
-  padding: 0.48rem;
-  border-radius: 48rem;
-  background: white;
-  font-size: 1.2rem;
-}
-.blog-input > button:hover {
-  border: 0.08rem solid black;
-  background: green;
-  color: white;
-}
+
 .inputs {
   display: flex;
   flex-direction: column;
   background: white;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.552) 0%, white 25%, rgba(255, 255, 255, 0.552) 87%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.552) 0%,
+    white 25%,
+    rgba(255, 255, 255, 0.552) 87%
+  );
   padding: 0.8rem;
   border-radius: 0.24rem;
   border: 0.08rem solid rgba(128, 128, 128, 0.23);
@@ -80,9 +102,9 @@ export default {
   .blog-input {
     flex-direction: column;
     align-items: center;
-}
-.blog-input > button {
-  margin: 1.24rem;
-}
+  }
+  .blog-input > button {
+    margin: 1.24rem;
+  }
 }
 </style>

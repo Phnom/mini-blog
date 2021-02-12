@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style>
+.editMode {
+  filter: invert(100%);
+}
+
 h1,
 h2 {
   color: black;

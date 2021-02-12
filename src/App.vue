@@ -34,4 +34,19 @@
     }
   }
 }
+
+.button { 
+  border: 0.08rem solid rgba(128, 128, 128, 0.23);
+  height: fit-content;
+  width: fit-content;
+  padding: 0.48rem;
+  border-radius: 48rem;
+  background: white;
+  font-size: 1.2rem;
+}
+.button:hover {
+  border: 0.08rem solid black;
+  background: green;
+  color: white;
+}
 </style>

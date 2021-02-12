@@ -5,13 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    data: []
+    data: [], 
+    edit: true,
+    editId: "",
   },
   getters: {
     getData: state => state.data,
+    getEdit: state => state.edit,
+    getEditId: state => state.editId,
+    getDataById: state => state.data.find(post => post._id === state.editId)
   },
   mutations: {
-    changeData: (state, change) => state.data = change
+    changeData: (state, change) => state.data = change,
+    changeEdit: (state) => state.edit = !state.edit,
+    changeEditId: (state, change) => state.editId = change,
   },
   actions: {
     postBlog: async (_, payload) => await fetch('http://localhost:5000/api/posts', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)}),
@@ -20,8 +27,10 @@ export default new Vuex.Store({
       const data = await request.json()
       context.commit("changeData", data)
     },
-    
-
+    editMode: (context, payload) => {
+      context.commit('changeEdit') 
+      context.commit('changeEditId', payload)
+    }
   },
   modules: {
   }
