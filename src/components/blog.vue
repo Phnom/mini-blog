@@ -1,8 +1,10 @@
 <template>
   <div class="blog">
-    <h1>Blog</h1>
-    <BlogSearch />
-    <h2>Posts:</h2>
+    <div class="header">
+      <h1>Blog</h1>
+    </div>
+    <BlogInput />
+    <h2>Posts</h2>
     <BlogPosts :data="data" />
   </div>
 </template>
@@ -10,11 +12,11 @@
 
 <script>
 import BlogPosts from "@/components/blogPosts.vue";
-import BlogSearch from "@/components/blogSearch.vue";
+import BlogInput from "@/components/blogInput.vue";
 export default {
   components: {
     BlogPosts,
-    BlogSearch,
+    BlogInput,
   },
   computed: {
     data() {
@@ -32,15 +34,38 @@ export default {
   margin: 0;
   padding: 0;
 }
+h1,
+h2 {
+  color: black;
+}
+.header {
+  filter: invert(100%);
+  height: 20%;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.4738270308123249) 51%,
+    rgba(255, 255, 255, 0) 87%
+  );
+}
 .blog {
-  padding: 0.88rem;
-  max-height: 90vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: fit-content;
-  border: 0.24rem solid green;
-  background: lightgrey;
+  background-image: url("~@/assets/background.jpg");
+  background-size: cover;
+  filter: sepia(7%) contrast(135%) saturate(-20%);
 }
-
+@media screen and (max-width: 800px) {
+  .blog {
+    background-size: 100% contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+}
 </style>

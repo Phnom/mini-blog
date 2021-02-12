@@ -33,12 +33,15 @@ export default {
 }
 
 dl {
-  width: 24rem;
+  width: 48rem;
   padding: 0.64rem;
-  border: 0.48rem solid darkblue;
   border-radius: 0.64rem;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  margin-bottom: 6.84rem;
   background: white;
-  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.552) 0%, white 25%, rgba(255, 255, 255, 0.552) 87%);
+  border: 0.08rem solid rgba(128, 128, 128, 0.23);
 }
 dt {
   font-size: 1.2rem;
@@ -52,4 +55,10 @@ dd {
   text-align: left;
   padding: 2.4rem;
 }
+@media screen and (max-width: 600px) {
+  dl {
+    width: 18rem;
+  }
+}
+
 </style>

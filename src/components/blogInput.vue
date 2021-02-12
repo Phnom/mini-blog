@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="blog-input">
     <div class="inputs">
       <label>Title:</label>
       <input type="text" v-model="title" />
@@ -33,21 +33,22 @@ export default {
 </script>
 
 <style>
-.search {
-  max-height: 50%;
+.blog-input {
+  max-height: 50%;;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
 }
-.search > button {
-  border: 0.08rem solid green;
+.blog-input > button { 
+  border: 0.08rem solid rgba(128, 128, 128, 0.23);
   height: fit-content;
+  width: fit-content;
   padding: 0.48rem;
   border-radius: 48rem;
   background: white;
   font-size: 1.2rem;
 }
-.search > button:hover {
+.blog-input > button:hover {
   border: 0.08rem solid black;
   background: green;
   color: white;
@@ -56,9 +57,10 @@ export default {
   display: flex;
   flex-direction: column;
   background: white;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.552) 0%, white 25%, rgba(255, 255, 255, 0.552) 87%);
   padding: 0.8rem;
   border-radius: 0.24rem;
-  border: 0.08rem solid grey;
+  border: 0.08rem solid rgba(128, 128, 128, 0.23);
 }
 .inputs > input,
 .inputs > textarea {
@@ -73,5 +75,14 @@ export default {
   font-size: 1rem;
   text-align: left;
   font-weight: 800;
+}
+@media screen and (max-width: 600px) {
+  .blog-input {
+    flex-direction: column;
+    align-items: center;
+}
+.blog-input > button {
+  margin: 1.24rem;
+}
 }
 </style>
