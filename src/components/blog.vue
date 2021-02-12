@@ -52,7 +52,7 @@ h2 {
 }
 .header {
   filter: invert(100%);
-  height: 16%;
+  height: 8%;
   width: 100%;
   background: rgb(255, 255, 255);
   background: linear-gradient(

@@ -6,9 +6,12 @@
       <label>Post:</label>
       <textarea type="text" v-model="content" :class="{ editMode: edit }" />
     </div>
-    <button class="button" @click="post()" :class="{ editMode: edit }">
-      Send
-    </button>
+    <div class="buttons">
+      <button class="button" @click="post()" :class="{ editMode: edit }">
+        Send
+      </button>
+      <button class="button editMode" v-if="edit">Delete</button>
+    </div>
   </div>
 </template>
 
@@ -33,19 +36,20 @@ export default {
   },
   methods: {
     post() {
-      this.edit ? this.editPost() : this.newPost();
-    },
-    newPost() {
-      this.$store.dispatch("postBlog", {
-        title: this.title,
-        content: this.content,
-      });
-      this.title = "";
-      this.content = "";
-      this.$store.dispatch("getBlogs");
-    },
-    editPost() {
-      console.log("edit");
+      !this.edit
+        ? this.$store.dispatch("postBlog", {
+            title: this.title,
+            content: this.content,
+          })
+        : this.$store.dispatch(
+            "patchBlog",
+            {
+              title: this.title,
+              content: this.content,
+              id: this.editId,
+            },
+            this.editId
+          );
     },
   },
   computed: {
@@ -63,6 +67,16 @@ export default {
 </script>
 
 <style>
+.buttons {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.editMode > .buttons  {
+    justify-content: space-around;
+}
 .blog-input {
   max-height: 40%;
   display: flex;

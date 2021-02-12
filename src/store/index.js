@@ -27,6 +27,9 @@ export default new Vuex.Store({
       const data = await request.json()
       context.commit("changeData", data)
     },
+    patchBlog: async (_, payload) => {
+      console.log(payload.id) 
+      await fetch('http://localhost:5000/api/posts' + payload.id, { method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)})},
     editMode: (context, payload) => {
       context.commit('changeEdit') 
       context.commit('changeEditId', payload)

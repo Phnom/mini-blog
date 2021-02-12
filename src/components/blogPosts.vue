@@ -8,7 +8,7 @@
     >
       <div class="blog-header">
         <dt>{{ item.title }}</dt>
-        <button class="button" @click="editMode(item._id)" :class="{ editMode: !edit && item._id === editId }">Edit </button>
+        <button class="button" @click="editMode(item._id)" :class="{ editMode: edit && item._id === editId }">Edit </button>
       </div>
       <dd>{{ item.content }}</dd>
     </dl>
