@@ -10,7 +10,11 @@
       <button class="button" @click="post()" :class="{ editMode: edit }">
         Send
       </button>
-      <button class="button editMode" v-if="edit" @click="deletePost(editId)">
+      <button
+        class="button editMode delete"
+        v-if="edit"
+        @click="deletePost(editId)"
+      >
         Delete
       </button>
     </div>
@@ -83,6 +87,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.delete:hover {
+  background: red;
+}
 .editMode > .buttons {
   justify-content: space-between;
 }
@@ -117,6 +124,7 @@ export default {
   height: 16vh;
 }
 .inputs > label {
+  color: black;
   font-size: 1rem;
   text-align: left;
   font-weight: 800;

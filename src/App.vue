@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div style="display:none" id="nav">
+    <div style="display: none" id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -35,7 +35,7 @@
   }
 }
 
-.button { 
+.button {
   border: 0.08rem solid rgba(128, 128, 128, 0.23);
   height: fit-content;
   width: fit-content;

@@ -74,6 +74,17 @@ h2 {
   );
   filter: invert(100%);
 }
+.blog-post-single, .blog-input, .buttons:not() {
+  -webkit-transition: 0.4s -webkit-filter ease-in-out;
+  -moz-transition: 0.4s -moz-filter ease-in-out;
+  -moz-transition: 0.4s filter ease-in-out;
+  -ms-transition: 0.4s -ms-filter ease-in-out;
+  -o-transition: 0.4s -o-filter ease-in-out;
+  transition: 0.4s filter ease-in-out, 0.4s -webkit-filter ease-in-out;
+}
+
+
+
 @media screen and (max-width: 800px) {
   .blog {
     background-size: 100% contain;
