@@ -34,7 +34,7 @@ export default {
 
 <style>
 .blog-input {
-  max-height: 50%;;
+  max-height: 40%;
   display: flex;
   justify-content: space-evenly;
   width: 100%;

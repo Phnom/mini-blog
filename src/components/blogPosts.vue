@@ -21,7 +21,7 @@ export default {
 
 <style>
 .blog-post {
-  max-height: 50%;
+  max-height: 40%;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
