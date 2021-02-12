@@ -84,7 +84,7 @@ export default {
   align-items: center;
 }
 .editMode > .buttons {
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .blog-input {
   max-height: 40%;
