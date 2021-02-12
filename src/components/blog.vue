@@ -10,9 +10,8 @@
       </div>
       <button @click="post()">Send</button>
     </div>
-
-    <ul class="blog-post">
       <h2>Posts:</h2>
+    <ul class="blog-post">
       <dl class="blog-post-single" v-for="(item, index) in data" :key="index">
         <dt>{{ item.title }}</dt>
         <dd>{{ item.content }}</dd>
@@ -51,6 +50,10 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 .blog {
   display: flex;
   flex-direction: column;
@@ -63,7 +66,6 @@ export default {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  padding: 3.2rem;
 }
 .search > button {
   border: 0.08rem solid green;
@@ -102,7 +104,15 @@ export default {
 .blog-post {
   display: flex;
   flex-direction: column;
+  height: 80vh;
+  overflow-y:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
+.blog-post::-webkit-scrollbar {
+    display: none;
+}
+
 dl {
   width: 24rem;
   padding: 2.4rem;
