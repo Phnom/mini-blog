@@ -33,6 +33,7 @@ export default {
 }
 
 dl {
+  height: 20vh;
   width: 48rem;
   padding: 0.64rem;
   border-radius: 0.64rem;
@@ -47,13 +48,13 @@ dt {
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
-  padding: 2.4rem;
+  padding: 1.6rem;
   border-bottom: 0.16rem solid black;
 }
 dd {
   font-size: 0.8rem;
   text-align: left;
-  padding: 2.4rem;
+  padding: 0.8rem;
 }
 @media screen and (max-width: 600px) {
   dl {
