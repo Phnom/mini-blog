@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     data: [], 
-    edit: true,
+    edit: false,
     editId: "",
   },
   getters: {
