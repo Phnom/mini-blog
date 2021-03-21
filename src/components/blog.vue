@@ -45,9 +45,11 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: fit-content;
   background-image: url("~@/assets/background.jpg");
-  background-size: cover;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
   filter: sepia(7%) contrast(135%) saturate(-20%);
 }
 .header {
