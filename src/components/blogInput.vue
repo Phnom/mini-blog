@@ -98,6 +98,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  gap: 0.48rem;
 }
 
 .inputs {

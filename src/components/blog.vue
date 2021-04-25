@@ -38,6 +38,7 @@ export default {
 h1,
 h2 {
   color: black;
+  background: rgba(128, 128, 128, 0.164);
 }
 
 .blog {
@@ -47,15 +48,21 @@ h2 {
   align-items: center;
   justify-content: space-between;
   width: fit-content;
+  background-color: black;
+  background-blend-mode:multiply;
   background-image: url("~@/assets/background.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
-  filter: sepia(7%) contrast(135%) saturate(-20%);
+  filter: sepia(27%) contrast(135%) saturate(-20%);
+  gap: 0.48rem;
 }
 .header {
   filter: invert(100%);
   height: 8%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
@@ -89,7 +96,8 @@ h2 {
 
 @media screen and (max-width: 800px) {
   .blog {
-    background-size: 100% contain;
+    width: 100%;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
